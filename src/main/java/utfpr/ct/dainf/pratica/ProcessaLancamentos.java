@@ -50,8 +50,9 @@ public class ProcessaLancamentos {
         return new_record;
     }
     
+    //TAREFA 6
     private Lancamento getNextLancamento() throws IOException {
-        throw new UnsupportedOperationException("Não implementado");
+        return processaLinha(getNextLine());
     }
     
     public List<Lancamento> getLancamentos() throws IOException {
