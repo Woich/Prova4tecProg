@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,10 +32,10 @@ public class ProcessaLancamentos {
         if((line = this.reader.readLine()) != null) {
             return line;
         }
-        
-        throw new IOException("Não há mais linhas a serem lidas!");
+        return null;
     }
     
+    //Tarefa 5
     private Lancamento processaLinha(String linha) {
         Lancamento new_record;
         
@@ -52,11 +54,32 @@ public class ProcessaLancamentos {
     
     //TAREFA 6
     private Lancamento getNextLancamento() throws IOException {
-        return processaLinha(getNextLine());
+        String linha = getNextLine();
+        
+        if(linha != null){
+            return processaLinha(getNextLine());
+        }
+        return null;
     }
     
+    //TAREFA 7
     public List<Lancamento> getLancamentos() throws IOException {
-        throw new UnsupportedOperationException("Não implementado");
+        try{
+            Lancamento temp;
+            List<Lancamento> lista = new ArrayList<>();
+            
+            temp = getNextLancamento();
+            
+            while(temp != null){
+                lista.add(temp);
+                temp = getNextLancamento();
+            }
+            
+            return lista;
+        }
+        finally{
+            this.reader.close();
+        }
     }
     
 }
