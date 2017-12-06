@@ -19,6 +19,7 @@ public class Pratica {
         Scanner scanner = new Scanner(System.in);
         ProcessaLancamentos lancamentos;
         List<Lancamento> lancamento;
+        int conta = -1;
         
         System.out.println("Informe o caminho para o arquivo: ");
         path = scanner.next();
@@ -39,7 +40,6 @@ public class Pratica {
             exibeLancamentosConta(lancamento, conta);
             
         } while(conta != 0);
-
     }
     
     //TAREFA 8
