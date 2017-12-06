@@ -25,11 +25,30 @@ public class Pratica {
         
         lancamentos = new ProcessaLancamentos(path);
         lancamento = lancamentos.getLancamentos();
+        
+        do {
+            
+            System.out.println("Informe o número da conta: ");
+            
+            if(scanner.hasNextInt()) {
+                conta = scanner.nextInt();
+            } else {
+                System.out.println("Informe apenas números!");
+            }
+            
+            exibeLancamentosConta(lancamento, conta);
+            
+        } while(conta != 0);
 
     }
     
+    //TAREFA 8
     public static void exibeLancamentosConta(List<Lancamento> lancamentos, Integer conta) {
-
+        for(Lancamento temp : lancamentos){
+            if(temp.getConta().equals(conta)){
+                System.out.println(temp+"\n");
+            }
+        }
     }
  
 }
