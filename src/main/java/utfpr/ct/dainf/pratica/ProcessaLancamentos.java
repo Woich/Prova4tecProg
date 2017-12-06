@@ -23,7 +23,7 @@ public class ProcessaLancamentos {
     public ProcessaLancamentos(String path) throws FileNotFoundException {
         reader = new BufferedReader(new FileReader(path));
     }
-    
+    //TAREFA 4
     private String getNextLine() throws IOException {
         String line;
         
@@ -35,7 +35,19 @@ public class ProcessaLancamentos {
     }
     
     private Lancamento processaLinha(String linha) {
-        throw new UnsupportedOperationException("Não implementado");
+        Lancamento new_record;
+        
+        int conta = Integer.parseInt(linha.substring(0, 6));
+        int dia = Integer.parseInt(linha.substring(12,14));
+        int mes = Integer.parseInt(linha.substring(10,12));
+        int ano = Integer.parseInt(linha.substring(6, 10));
+        Date data = new Date(ano, mes, dia);
+        String descricao = linha.substring(14, 74);
+        Double valor = Double.parseDouble(linha.substring(74,84) + '.' + linha.substring(84,86));
+        
+        new_record = new Lancamento(conta, data, descricao, valor);
+        
+        return new_record;
     }
     
     private Lancamento getNextLancamento() throws IOException {
