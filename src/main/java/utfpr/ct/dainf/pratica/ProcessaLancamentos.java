@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
+import java.util.Collections;
 /**
  * Linguagem Java
  * @author
@@ -74,6 +74,8 @@ public class ProcessaLancamentos {
                 lista.add(temp);
                 temp = getNextLancamento();
             }
+            
+            Collections.sort(lista, new LancamentoComparator());
             
             return lista;
         }
