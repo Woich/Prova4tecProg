@@ -22,7 +22,13 @@ public class ProcessaLancamentos {
     }
     
     private String getNextLine() throws IOException {
-        throw new UnsupportedOperationException("Não implementado");
+        String line;
+        
+        if((line = this.reader.readLine()) != null) {
+            return line;
+        }
+        
+        throw new IOException("Não há mais linhas a serem lidas!");
     }
     
     private Lancamento processaLinha(String linha) {
