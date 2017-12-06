@@ -3,6 +3,7 @@ package utfpr.ct.dainf.pratica;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
@@ -13,12 +14,14 @@ import java.util.List;
 public class ProcessaLancamentos {
     private BufferedReader reader;
 
+    //TAREFA 2
     public ProcessaLancamentos(File arquivo) throws FileNotFoundException {
-        throw new UnsupportedOperationException("Não implementado");
+        reader = new BufferedReader(new FileReader(arquivo));
     }
 
+    //TAREFA 3
     public ProcessaLancamentos(String path) throws FileNotFoundException {
-        throw new UnsupportedOperationException("Não implementado");
+        reader = new BufferedReader(new FileReader(path));
     }
     
     private String getNextLine() throws IOException {
